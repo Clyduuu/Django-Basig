@@ -16,7 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from CardGame.views import HomePageView, TrainerList, PokemonCardList, CollectionListView
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', HomePageView.as_view(), name='home'),
+    path('trainers/', TrainerList.as_view(), name='trainer-list'),
+    path('pokemon-cards/', PokemonCardList.as_view(), name='pokemon-cards'),
+    path('collection/', CollectionListView.as_view(), name='collection'),
+    # Add other paths for your views as needed
 ]
